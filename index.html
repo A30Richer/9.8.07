@@ -39,11 +39,8 @@
   html{ scroll-behavior:smooth; }
 
   body{
-    background:
-      radial-gradient(circle at 50% 0%, rgba(44,28,41,0.32), transparent 34%),
-      linear-gradient(160deg, var(--main) 0%, #100607 45%, var(--support) 100%);
-    background-attachment:fixed;
-    color:var(--cream);
+    background: #000000;
+    color: var(--cream);
     font-family:'Mitr', sans-serif;
     font-weight:300;
     overflow-x:hidden;
@@ -58,10 +55,9 @@
     position:fixed; inset:0; z-index:0; pointer-events:none;
     opacity:0.05; transition:opacity 0.4s ease;
     background:
-      radial-gradient(38% 32% at 50% 30%, rgba(255,201,138,0.15), transparent 62%),
-      radial-gradient(58% 44% at 88% 88%, rgba(44,28,41,0.78), transparent 68%),
-      radial-gradient(50% 42% at 5% 85%, rgba(30,38,51,0.72), transparent 68%),
-      linear-gradient(145deg, rgba(21,5,6,0.30), rgba(44,26,39,0.24) 52%, rgba(30,38,51,0.22));
+      radial-gradient(38% 30% at 50% 30%, rgba(224,161,92,0.16), transparent 62%),
+      radial-gradient(55% 40% at 85% 90%, rgba(124,36,48,0.14), transparent 60%),
+      radial-gradient(45% 35% at 8% 85%, rgba(168,95,42,0.10), transparent 60%);
   }
 
   /* film grain, very subtle, matches the photo's low-light noise */
@@ -94,15 +90,12 @@
   }
 
   /* ---------- HERO: total darkness, a single match-light waiting to catch ---------- */
-  .hero-wrap{ height:220vh; position:relative; background:var(--main); }
+  .hero-wrap{ height:220vh; position:relative; background:#000000; }
   .hero{
     position:sticky; top:0; height:100vh;
     display:flex; flex-direction:column; align-items:center; justify-content:center;
     text-align:center; overflow:hidden; padding:32px 24px; gap:28px;
-    background:
-      radial-gradient(circle at 50% 38%, rgba(44,26,39,0.36), transparent 34%),
-      radial-gradient(circle at 85% 90%, rgba(30,38,51,0.22), transparent 40%),
-      var(--main);
+    background:#000000;
   }
 
   .flame-seed{
