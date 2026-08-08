@@ -15,25 +15,35 @@
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;600;800&family=Mitr:wght@200;300;400;500&family=Sriracha&family=Alex+Brush&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --void:#000000;
-    --void-2:#0c0906;
-    --ember:#e0a15c;
-    --ember-deep:#a85f2a;
+    /* สีโปรดของเจ้าของวันเกิด */
+    --main:#150506;
+    --minor:#2c1c29;
+    --minor-2:#2c1a27;
+    --support:#1e2633;
+    --support-2:#393f4b;
+    /* สีที่ใช้กับข้อความและแสง */
+    --void:var(--main);
+    --void-2:var(--minor-2);
+    --ember:#aeb5c1;
+    --ember-deep:var(--support-2);
     --flame:#ffc98a;
     --cream:#f3e8da;
-    --petal:#ece1d6;
-    --wine:#7c2430;
-    --wine-soft:#a8465a;
-    --smoke: rgba(243,232,218,0.56);
-    --hair: rgba(243,232,218,0.10);
+    --petal:#c6b7c4;
+    --wine:var(--minor);
+    --wine-soft:#624052;
+    --smoke:rgba(243,232,218,0.62);
+    --hair:rgba(243,232,218,0.10);
   }
 
   *{ margin:0; padding:0; box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
 
   body{
-    background: var(--void);
-    color: var(--cream);
+    background:
+      radial-gradient(circle at 50% 0%, rgba(44,28,41,0.32), transparent 34%),
+      linear-gradient(160deg, var(--main) 0%, #100607 45%, var(--support) 100%);
+    background-attachment:fixed;
+    color:var(--cream);
     font-family:'Mitr', sans-serif;
     font-weight:300;
     overflow-x:hidden;
@@ -46,12 +56,12 @@
   /* faint warm room-glow — starts almost invisible (near-total dark), grows in with scroll */
   .glow{
     position:fixed; inset:0; z-index:0; pointer-events:none;
-    opacity:0.05;
-    transition: opacity 0.4s ease;
+    opacity:0.05; transition:opacity 0.4s ease;
     background:
-      radial-gradient(38% 30% at 50% 30%, rgba(224,161,92,0.16), transparent 62%),
-      radial-gradient(55% 40% at 85% 90%, rgba(124,36,48,0.14), transparent 60%),
-      radial-gradient(45% 35% at 8% 85%, rgba(168,95,42,0.10), transparent 60%);
+      radial-gradient(38% 32% at 50% 30%, rgba(255,201,138,0.15), transparent 62%),
+      radial-gradient(58% 44% at 88% 88%, rgba(44,28,41,0.78), transparent 68%),
+      radial-gradient(50% 42% at 5% 85%, rgba(30,38,51,0.72), transparent 68%),
+      linear-gradient(145deg, rgba(21,5,6,0.30), rgba(44,26,39,0.24) 52%, rgba(30,38,51,0.22));
   }
 
   /* film grain, very subtle, matches the photo's low-light noise */
@@ -66,7 +76,8 @@
   .petals{ position:fixed; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
   .petal{
     position:absolute; top:-6%; width:9px; height:13px; border-radius:60% 5% 60% 5%;
-    background:linear-gradient(160deg, var(--petal), var(--wine-soft));
+    background: linear-gradient(160deg, #c6b7c4 0%, var(--minor) 52%, var(--support-2) 100%);
+    box-shadow:0 0 8px rgba(57,63,75,0.18);
     opacity:0; animation-name: fall, sway;
     animation-timing-function: linear, ease-in-out;
     animation-iteration-count: infinite, infinite;
@@ -83,12 +94,15 @@
   }
 
   /* ---------- HERO: total darkness, a single match-light waiting to catch ---------- */
-  .hero-wrap{ height:220vh; position:relative; background:#000; }
+  .hero-wrap{ height:220vh; position:relative; background:var(--main); }
   .hero{
     position:sticky; top:0; height:100vh;
     display:flex; flex-direction:column; align-items:center; justify-content:center;
     text-align:center; overflow:hidden; padding:32px 24px; gap:28px;
-    background:#000;
+    background:
+      radial-gradient(circle at 50% 38%, rgba(44,26,39,0.36), transparent 34%),
+      radial-gradient(circle at 85% 90%, rgba(30,38,51,0.22), transparent 40%),
+      var(--main);
   }
 
   .flame-seed{
@@ -121,10 +135,13 @@
   .photo-frame{
     position:relative; z-index:1;
     width:min(300px, 76vw);
-    border-radius:2px;
-    background: var(--void-2);
+    border-radius:3px;
+    background: linear-gradient(145deg, var(--minor), var(--minor-2) 55%, var(--support));
     padding:10px 10px 34px;
-    box-shadow:0 50px 90px rgba(0,0,0,0.7), 0 0 0 1px rgba(243,232,218,0.06);
+    box-shadow:
+      0 50px 90px rgba(0,0,0,0.72),
+      0 0 45px rgba(44,28,41,0.24),
+      0 0 0 1px rgba(174,181,193,0.13);
     opacity:0;
     will-change:opacity, filter, transform;
   }
@@ -169,13 +186,14 @@
 
   .headline{ font-size:clamp(38px,8.6vw,82px); font-weight:800; line-height:1.05; font-weight:600; }
   .headline .accent{
-    display:block;
-    font-family: 'Sriracha', cursive;
-    color:var(--flame);
-    text-shadow: 0 0 20px rgba(255, 201, 138, 0.4);
-    font-size:clamp(34px,7vw,60px);
-    font-weight:400;
-    margin-top:8px;
+    display:block; font-family:'Sriracha', cursive; color:#d7c6d2;
+    text-shadow: 0 0 18px rgba(44,28,41,0.9), 0 0 34px rgba(255,201,138,0.15);
+    font-size:clamp(34px,7vw,60px); font-weight:400; margin-top:8px;
+  }
+  .eyebrow, .message .lead{ color:#aeb5c1; }
+  .rule, .sign-underline{
+    background: linear-gradient(90deg, transparent, var(--support-2), #c6b7c4, var(--support-2), transparent);
+    height:1px; opacity:0.7;
   }
   .rule{ width:44px; height:1px; background:linear-gradient(90deg, transparent, var(--ember), transparent); opacity:0.6; }
 
@@ -192,9 +210,10 @@
   .number-block{ position:relative; overflow:hidden; }
   .big-number{
     font-size:clamp(140px,32vw,320px); font-weight:800; line-height:0.85;
-    background:linear-gradient(180deg, var(--flame), var(--wine));
+    background: linear-gradient(180deg, #d7c6d2 0%, var(--minor) 42%, var(--support-2) 100%);
     -webkit-background-clip:text; background-clip:text; color:transparent;
     letter-spacing:-0.02em;
+    filter:drop-shadow(0 10px 28px rgba(21,5,6,0.55));
   }
   .number-caption{ font-size:clamp(15px,2.2vw,18px); letter-spacing:0.03em; color:var(--smoke); max-width:420px; }
 
